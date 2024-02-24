@@ -25,7 +25,7 @@ namespace Lab3
         {
             folderBrowserDialog.ShowDialog();
             string folderPath = folderBrowserDialog.SelectedPath.ToString();
-            File.Copy(filePath, folderPath + "\\" + textBox1.Text);
+            File.Copy(filePath, folderPath + "\\" + "copied_" + textBox1.Text);
         }
 
         private void button3_Click(object sender, EventArgs e)
