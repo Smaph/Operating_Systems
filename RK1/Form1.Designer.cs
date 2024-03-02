@@ -36,20 +36,22 @@
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.Location = new Point(202, 189);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
             textBox1.Size = new Size(459, 44);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
+            textBox2.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.Location = new Point(356, 291);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(305, 70);
             textBox2.TabIndex = 1;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // button1
             // 
@@ -59,6 +61,7 @@
             button1.TabIndex = 2;
             button1.Text = "Browse";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -68,6 +71,7 @@
             button2.TabIndex = 3;
             button2.Text = "Split";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
