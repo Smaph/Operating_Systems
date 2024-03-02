@@ -53,5 +53,10 @@ namespace Lab1
         {
             this.BackColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -105,6 +105,7 @@ namespace Lab1
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             MouseMove += Form1_MouseMove;
             ResumeLayout(false);
             PerformLayout();

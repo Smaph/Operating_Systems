@@ -12,11 +12,6 @@ namespace RK1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (fileDialog.ShowDialog() == DialogResult.OK)
@@ -44,26 +39,23 @@ namespace RK1
             double fileSize = new FileInfo(filePath).Length;
             double partSize = fileSize / numParts;
 
-            using (FileStream inputStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            FileStream inputStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);     
+            for (int i = 0; i < numParts; i++)
             {
-                for (int i = 0; i < numParts; i++)
+                string partFileName = $"{filePath}_part{i + 1}";
+
+                FileStream outputStream = new FileStream(partFileName, FileMode.Create, FileAccess.Write);              
+                byte[] buffer = new byte[4096];
+                int bytesRead;
+                double bytesRemaining = partSize;
+                while ((bytesRead = inputStream.Read(buffer, 0, (int)Math.Min(bytesRemaining, buffer.Length))) > 0)
                 {
-                    string partFileName = $"{filePath}_part{i + 1}";
-                    using (FileStream outputStream = new FileStream(partFileName, FileMode.Create, FileAccess.Write))
-                    {
-                        byte[] buffer = new byte[4096];
-                        int bytesRead;
-                        double bytesRemaining = partSize;
-                        while ((bytesRead = inputStream.Read(buffer, 0, (int)Math.Min(bytesRemaining, buffer.Length))) > 0)
-                        {
-                            outputStream.Write(buffer, 0, bytesRead);
-                            bytesRemaining -= bytesRead;
-                            if (bytesRemaining <= 0)
-                                break;
-                        }
-                    }
+                    outputStream.Write(buffer, 0, bytesRead);
+                    bytesRemaining -= bytesRead;
+                    if (bytesRemaining <= 0)
+                        break;
                 }
-            }
+            }            
 
             MessageBox.Show("Файл успешно разбит на части.");
         }

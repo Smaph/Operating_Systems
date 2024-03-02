@@ -83,8 +83,7 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Text = "Form1";           
             ResumeLayout(false);
             PerformLayout();
         }
