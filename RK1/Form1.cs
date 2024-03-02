@@ -55,7 +55,7 @@ namespace RK1
                     if (bytesRemaining <= 0)
                         break;
                 }
-            }            
+            }
 
             MessageBox.Show("Файл успешно разбит на части.");
         }
