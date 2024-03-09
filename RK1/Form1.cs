@@ -39,12 +39,12 @@ namespace RK1
             double fileSize = new FileInfo(filePath).Length;
             double partSize = fileSize / numParts;
 
-            FileStream inputStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);     
+            FileStream inputStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             for (int i = 0; i < numParts; i++)
             {
                 string partFileName = $"{filePath}_part{i + 1}";
 
-                FileStream outputStream = new FileStream(partFileName, FileMode.Create, FileAccess.Write);              
+                FileStream outputStream = new FileStream(partFileName, FileMode.Create, FileAccess.Write);
                 byte[] buffer = new byte[4096];
                 int bytesRead;
                 double bytesRemaining = partSize;
