@@ -13,24 +13,15 @@ namespace Lab4
         {
             InitializeComponent();
         }
-        public void UpdateText(string newText)
-        {
-            if (InvokeRequired)
-            {
-                Invoke(new Action<string>(UpdateText), newText);
-                return;
-            }
-            textBox1.Text = newText;
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            SecondThread.Start(this);
-        }
-       
         private void button1_Click(object sender, EventArgs e)
         {
             FirstThread.Start(this);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SecondThread.Start(this);
         }
     }
 }
