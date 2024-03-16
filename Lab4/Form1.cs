@@ -13,7 +13,6 @@ namespace Lab4
         {
             InitializeComponent();
         }
-        // Метод для обновления текста на главной форме из разных потоков
         public void UpdateText(string newText)
         {
             if (InvokeRequired)
@@ -26,14 +25,11 @@ namespace Lab4
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Создаем и запускаем второй поток из вспомогательного файла
             SecondThread.Start(this);
         }
-
-        // Обработчик события нажатия кнопки
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            // Создаем и запускаем первый поток из вспомогательного файла
             FirstThread.Start(this);
         }
     }

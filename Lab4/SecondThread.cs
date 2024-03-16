@@ -14,10 +14,7 @@ namespace Lab4
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    // Обновляем текст на главной форме
                     mainForm.UpdateText($"Second Thread: {i}");
-
-                    // Приостанавливаем выполнение потока на 500 мс
                     Thread.Sleep(500);
                 }
             });
