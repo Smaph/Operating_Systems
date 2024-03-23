@@ -69,5 +69,10 @@ namespace Lab4
             FirstThread.Priority(ThreadPriority.Highest);
             SecondThread.Priority(ThreadPriority.Lowest);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
